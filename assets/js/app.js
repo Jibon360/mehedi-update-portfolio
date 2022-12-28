@@ -1,4 +1,8 @@
 $(function () {
+  // navbar
+  $(".navbar-toggler").on('click', function () {
+    $(".fa-bars-staggered").toggleClass("fa-xmark");
+  });
   // sticky navbar
   $(window).on("scroll", function () {
     var scroll = $(window).scrollTop();
@@ -8,7 +12,26 @@ $(function () {
       $(".navbar").removeClass("navbg");
     }
   });
+
+  // colr switcher
+  // show switcher icon
+  $(".color-switchericon").on('click', function () {
+    $(".color-switcher").toggleClass("showcolorpalate");
+  })
+
+
+
+  $(".colorbtn").each(function (params) {
+    $(this).on('click', function (params) {
+      var color = $(this).attr("data-color");
+      document.documentElement.style.setProperty("--main-color", color);
+    })
+  })
 });
+
+
+
+
 
 // banner animate text
 var typed = new Typed(".runtext", {
@@ -66,17 +89,5 @@ $(".owl-carousel").owlCarousel({
 });
 
 
-// colr switcher
-// show switcher icon
-$(".color-switchericon").on('click',function(){
-  $(".color-switcher").toggleClass("showcolorpalate");
-})
 
 
-
-$(".colorbtn").each(function (params) {
-  $(this).on('click', function (params) {
-    var color = $(this).attr("data-color");
-    document.documentElement.style.setProperty("--main-color", color);
-  })
-})
